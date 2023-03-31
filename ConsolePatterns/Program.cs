@@ -25,19 +25,34 @@ Console.WriteLine();
 #region Паттерн "Декоратор" стандартная реализация
 IceCream plompier = new Plombier();
 plompier = new ChocolateChips(plompier);
-Console.WriteLine(plompier.Description);
+Console.WriteLine(plompier.ToString());
 Console.WriteLine();
 
 IceCream sundae = new Sundae();
 sundae = new RaspberrySyrup(sundae);
 sundae = new Nuts(sundae);
-Console.WriteLine(sundae.Description);
+Console.WriteLine(sundae.ToString());
 Console.WriteLine();
 
 IceCream mic = new MilkIceCream();
 mic = new ChocolateChips(mic);
 mic = new RaspberrySyrup(mic);
 mic = new Nuts(mic);
-Console.WriteLine(mic.Description);
+Console.WriteLine(mic.ToString());
+Console.WriteLine();
+#endregion
+
+#region Паттерн "Декоратор" модернизированная реализация 
+DecorIceCream order = new DecorMilkIceCream();
+order = order.AddDecor(new DecorNuts());
+order = order.AddDecor(new DecorRaspberrySyrup());
+Console.WriteLine(order.ToString());
+Console.WriteLine();
+
+DecorIceCream order2 = new DecorSundae();
+order2 = order2.AddDecor(new DecorChocolateChips());
+order2 = order2.AddDecor(new DecorRaspberrySyrup());
+order2 = order2.AddDecor(new DecorNuts());
+Console.WriteLine(order2.ToString());
 Console.WriteLine();
 #endregion
