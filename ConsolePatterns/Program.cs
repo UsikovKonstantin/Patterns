@@ -56,3 +56,15 @@ order2 = order2.AddDecor(new DecorNuts());
 Console.WriteLine(order2.ToString());
 Console.WriteLine();
 #endregion
+
+#region Паттерн "Наблюдатель" 
+VideoCreator vc = new VideoCreator();
+Viewer v1 = new Viewer("Vanya128", vc);
+Viewer v2 = new Viewer("Alex32", vc);
+Viewer v3 = new Viewer("Dmitry64", vc);
+vc.MakeVideo();
+v1.StopView();
+v2.StopView();
+v3.StopView();
+Console.WriteLine();
+#endregion
